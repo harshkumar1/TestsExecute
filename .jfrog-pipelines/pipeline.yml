@@ -1,0 +1,23 @@
+valuesFilePath: ./values.yml
+
+resources:
+  - name: src_repo_1_tests_execute
+    type: GitRepo
+    configuration:
+      gitProvider: hk_github
+      path: harshkumar1/testsexecute
+      branches:
+        include: main
+
+pipelines:
+  - name: demo_bash_mvn_build_test
+    steps:
+      - name: mvn_build
+        type: Bash
+        configuration:
+          inputResources:
+            - name: src_repo_1_java_mvn_docker_repo
+        execution:
+          onExecute:
+            - mvn clean build
+            - save_tests $res_src_repo_resourcePath/target/surefire-reports/
