@@ -18,7 +18,8 @@ public class Junit5_Dynamic_Tests {
       // a number evenly divisible by 7 is encountered.
       Iterator<Integer> inputGenerator = new Iterator<Integer>() {
 
-          Random random = new Random();
+          Random random = 1000;//new Random();
+          System.out.println ("random: " + random)
           int current = 0;
 
           @Override
