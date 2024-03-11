@@ -27,5 +27,5 @@ pipelines:
             - pwd
             - cd $res_src_repo_1_tests_execute_resourcePath
             - pwd
-            - mvn clean build
+            - mvn clean install
             - save_tests $res_src_repo_1_tests_execute_resourcePath/target/surefire-reports/
