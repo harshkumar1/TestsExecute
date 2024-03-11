@@ -14,7 +14,14 @@ pipelines:
         type: Bash
         configuration:
           inputResources:
-            - name: src_repo_1_java_mvn_docker_repo
+            - name: src_repo_1_tests_execute
+          runtime:
+            type: image
+            image:
+              auto:
+                language: java
+                versions:
+                  - "17"
         execution:
           onExecute:
             - mvn clean build
